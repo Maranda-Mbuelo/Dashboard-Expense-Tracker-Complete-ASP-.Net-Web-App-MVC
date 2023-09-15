@@ -1,0 +1,77 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+<section class="hero">
+    <div class="hero-content">
+        <h1 class="hero-title">Welcome to Your Dashboard</h1>
+        <p class="hero-subtitle">Take control of your finances with our powerful web app.</p>
+        <a href="/Dashboard" class="btn btn-primary">Get Started</a>
+    </div>
+</section>
+
+<section class="features">
+    <div class="container">
+        <h2 class="section-title">Key Features</h2>
+        <div class="row">
+            <div class="col-md-4">
+                <ejs-card>
+                    <div class="card-body">
+                        <h4 class="card-title">Expense Tracker</h4>
+                        <p class="card-text">Track your expenses and income with ease.</p>
+                    </div>
+                </ejs-card>
+            </div>
+            <div class="col-md-4">
+                <ejs-card>
+                    <div class="card-body">
+                        <h4 class="card-title">Interactive Charts</h4>
+                        <p class="card-text">Visualize your financial data with beautiful charts.</p>
+                    </div>
+                </ejs-card>
+            </div>
+            <div class="col-md-4">
+                <ejs-card>
+                    <div class="card-body">
+                        <h4 class="card-title">Budget Planning</h4>
+                        <p class="card-text">Set and manage your monthly budgets effortlessly.</p>
+                    </div>
+                </ejs-card>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="fun-stuff">
+    <div class="container">
+        <h2 class="section-title">Fun Stuff</h2>
+        <div class="row">
+            <div class="col-md-6">
+                <button id="spin-button" class="btn btn-primary">Spin the Wheel</button>
+            </div>
+            <div class="col-md-6">
+                <ejs-progressbar id="fun-progress" type="Circular" width="120px" height="120px"></ejs-progressbar>
+            </div>
+        </div>
+    </div>
+</section>
+
+<script>
+    document.getElementById("spin-button").addEventListener("click", function () {
+        spinWheel();
+    });
+
+    function spinWheel() {
+        // Simulate spinning the wheel with a progress bar
+        let progressValue = 0;
+        const progressInterval = setInterval(function () {
+            progressValue += 10;
+            document.getElementById("fun-progress").setAttribute("value", progressValue.toString());
+
+            if (progressValue >= 100) {
+                clearInterval(progressInterval);
+                alert("Congratulations! You've won a prize!");
+            }
+        }, 200);
+    }
+</script>
